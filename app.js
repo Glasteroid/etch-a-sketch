@@ -27,6 +27,13 @@ createRows(16);
 
 button.addEventListener("click", () => {
     const size = prompt("How big would you like x to be, where the grid is made up of x by x squares?");
+    size = parseInt(size, 10);
+
+    if (isNaN(size) || size <= 0 || size > 100) {
+        alert("Please enter a number between 1 and 100.");
+        return; // Exit the function if the input is invalid
+    }
+
     wrapper.innerHTML = '';
     createRows(size);
 });
